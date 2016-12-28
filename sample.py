@@ -1,25 +1,30 @@
 '''
-Created on 2016/12/26
+Created on 2016/12/22
 
 @author: nogami_kenji
 '''
 
+import configparser
 import urllib.parse
 import requests
 import json
 
 def yapi_topics():
+        
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    proxy_host = config['proxy']['host']
+    proxy_port = config['proxy']['port']
+    proxy_user = config['proxy']['user']
+    proxy_pwd = config['proxy']['pwd']
     
-    user = ""
-    pwd = ""
-    proxy_server = ""
-    proxy_port = ""
-    proxy_url = "http://" + urllib.parse.quote(user) + ":" + urllib.parse.quote(pwd) + "@" + proxy_server + ":" + proxy_port + "/"
+    proxy_url = "http://" + urllib.parse.quote(proxy_user) + ":" + urllib.parse.quote(proxy_pwd) + \
+                "@" + proxy_host + ":" + proxy_port + "/"
     print("url = " + proxy_url)
     proxy = {'http': proxy_url}
     
     url = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/categoryRanking?'
-    appid = ''
+    appid = config['yahoo']['appid']
     params = urllib.parse.urlencode(
             {'appid': appid,
              'offset':1,
