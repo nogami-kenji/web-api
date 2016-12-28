@@ -20,7 +20,7 @@ def yapi_topics():
     
     proxy_url = "http://" + urllib.parse.quote(proxy_user) + ":" + urllib.parse.quote(proxy_pwd) + \
                 "@" + proxy_host + ":" + proxy_port + "/"
-    print("url = " + proxy_url)
+    #print("url = " + proxy_url)
     proxy = {'http': proxy_url}
     
     url = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/categoryRanking?'
