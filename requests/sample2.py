@@ -34,7 +34,7 @@ def yapi_topics():
              'generation':30,
              'gender':'female',})
 
-    response = requests.get(url + params, proxies=proxy)
+    #response = requests.get(url + params, proxies=proxy)
     response = requests.get(url + params)
     #
     print(response.status_code)
