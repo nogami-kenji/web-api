@@ -37,6 +37,8 @@ def yapi_topics():
     #response = requests.get(url + params, proxies=proxy)
     response = requests.get(url + params)
     #
+    print(response.status_code)
+    print(response.headers)
 
     return response.text
 
