@@ -13,17 +13,6 @@ def yapi_topics():
         
     config = configparser.ConfigParser()
     config.read('config.ini')
-    '''
-    proxy_host = config['proxy']['host']
-    proxy_port = config['proxy']['port']
-    proxy_user = config['proxy']['user']
-    proxy_pwd = config['proxy']['pwd']
-    
-    proxy_url = "http://" + urllib.parse.quote(proxy_user) + ":" + urllib.parse.quote(proxy_pwd) + \
-                "@" + proxy_host + ":" + proxy_port + "/"
-    #print("url = " + proxy_url)
-    proxy = {'http': proxy_url}
-    '''
     
     url = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/categoryRanking?'
     appid = config['yahoo']['appid']
@@ -34,7 +23,6 @@ def yapi_topics():
              'generation':30,
              'gender':'female',})
 
-    #response = requests.get(url + params, proxies=proxy)
     response = requests.get(url + params)
     
     print(response.status_code)
